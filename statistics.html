@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Statistics</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="trigonometry.html">Trigonometry</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="solveing.html">Problem Solver</a>
+      <a href="more.html">More</a>
+    </nav>
+  </header>
+  <main>
+    <section id="youtube">
+      <h2>YouTube Tutorial</h2>
+      <div class="video-container">
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/CfQPLIYbaqk" title="Statistics Tutorial" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="key-concepts">
+      <h2>Key Concepts</h2>
+      <ul>
+        <li><strong>Mean:</strong>
+          <ul>
+            <li><strong>Direct method:</strong> Σfixi/Σfi</li>
+            <li><strong>Shortcut method:</strong> A + ∑fidi/∑fi</li>
+            <li><strong>Step-Deviation method:</strong> A + h (∑fiui / ∑fi)</li>
+          </ul>
+        </li>
+        <li><strong>Median:</strong> Middle value of a sorted dataset.</li>
+        <li><strong>Mode:</strong> Value that appears most frequently in a dataset.</li>
+        <li><strong>Relation:</strong> Mode = 3 Median - 2 Mean</li>
+      </ul>
+    </section>
+
+    <section id="statistics-quiz">
+      <h2>Statistics Quiz</h2>
+      <div id="statistics-quiz-container"></div>
+      <button onclick="submitStatisticsQuiz()">Submit Quiz</button>
+      <p id="statistics-result"></p>
+    </section>
+
+    <section id="pdf-resource">
+      <h2>Downloadable Resource</h2>
+      <p>Click the link below to download the Statistics PDF resource:</p>
+      <a href="./stats.pdf" download="Statistics_Resource.pdf" target="_blank">
+        <button>Download PDF</button>
+      </a>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Class 10 Math CBSE</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
