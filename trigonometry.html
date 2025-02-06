@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>caltia - Trigonometry</title>
+  <link rel="icon" href="./logo.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <h1>Trigonometry</h1>
+      <p>Where Complexity Meets Clarity</p>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="statistics.html">Statistics</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="solveing.html">Problem Solver</a>
+      <a href="more.html">More</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- YouTube Tutorial Section -->
+    <section id="youtube" class="section-container">
+      <h2>YouTube Tutorial</h2>
+      <div class="video-container">
+        <iframe 
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/7t8S__pN_9I" 
+          title="Trigonometry Tutorial" 
+          frameborder="0" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Key Concepts and Formulas -->
+    <section class="section-container">
+      <h2>Key Concepts and Formulas</h2>
+      <ul>
+        <li>
+          <strong>Sign Functions</strong>
+          <ul>
+            <li><strong>sin(-θ) = </strong>-sinθ</li>
+            <li><strong>cos(-θ) = </strong>cosθ</li>
+            <li><strong>tan(-θ) = </strong>-tanθ</li>
+            <li><strong>cosec(-θ) = </strong>-cosecθ</li>
+            <li><strong>sec(-θ) = </strong>secθ</li>
+            <li><strong>cot(-θ) = </strong>-cotθ</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Identities</strong>
+          <ul>
+            <li><strong>sin²A + cos²A = 1</strong></li>
+            <li><strong>tan²A + 1 = sec²A</strong></li>
+            <li><strong>cot²A + 1 = cosec²A</strong></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Trigonometry Quiz -->
+    <section id="quiz" class="section-container">
+      <h2>Trigonometry Quiz</h2>
+      <div id="quiz-container"></div>
+      <button onclick="submitQuiz()">Submit Quiz</button>
+      <p id="result"></p>
+    </section>
+
+    <!-- Downloadable PDF -->
+    <section id="pdf-resource" class="section-container">
+      <h2>Downloadable Resource</h2>
+      <p>Click the link below to download the Trigonometry PDF resource:</p>
+      <a href="./trigo.pdf" download="Trigonometry_Resource.pdf" target="_blank">
+        <button class="btn">Download PDF</button>
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Calctia</p>
+  </footer>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

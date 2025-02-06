@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calctia - Feedback</title>
+  <link rel="icon" href="./logo.jpg">
+  <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+  <header>
+    <h1>Student Feedback</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="trigonometry.html">Trigonometry</a>
+        <a href="statistics.html">Statistics</a>
+        <a href="solveing.html">Problem Solver</a>
+        <a href="more.html">More</a>
+    </nav>
+  </header>
+  <main>
+    <form id="feedbackForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your email address" required>
+      
+      <label for="feedback">Feedback:</label>
+      <textarea id="feedback" name="feedback" rows="5" placeholder="Write your feedback here..." required></textarea>
+      
+      <label for="rating">Rate Us:</label>
+      <select id="rating" name="rating" required>
+        <option value="">Select a rating</option>
+        <option value="1">1 - Poor</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
+      </select>
+      
+      <button type="submit">Submit Feedback</button>
+    </form>
+    <p id="thankYouMessage" style="color: green; margin-top: 20px; display: none;">Thank you for your feedback!</p>
+    <section id="feedback-list">
+      <h2>Feedback from Students</h2>
+    </section>
+  </main>
+
+  <!-- Firebase SDK (Modular v9+) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getDatabase, ref, push, get } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCWcjUzobe3m1qAWSCKFfNllfb1w_v05cU",
+  authDomain: "math-cda18.firebaseapp.com",
+  databaseURL: "https://math-cda18-default-rtdb.firebaseio.com",
+  projectId: "math-cda18",
+  storageBucket: "math-cda18.firebasestorage.app",
+  messagingSenderId: "139861318430",
+  appId: "1:139861318430:web:e608cbf1abb122a03b870f",
+  measurementId: "G-TR8TRJHX4X"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const feedback = document.getElementById("feedback").value;
+      const rating = document.getElementById("rating").value;
+
+      const feedbackData = { name, email, feedback, rating, timestamp: new Date().toISOString() };
+
+      const feedbackRef = ref(database, "feedbacks");
+      push(feedbackRef, feedbackData)
+        .then(() => {
+          document.getElementById("thankYouMessage").style.display = "block";
+          document.getElementById("feedbackForm").reset();
+          loadFeedbacks();
+        })
+        .catch((error) => console.error("Error submitting feedback: ", error));
+    });
+
+    function loadFeedbacks() {
+      const feedbackList = document.getElementById("feedback-list");
+      feedbackList.innerHTML = "<h2>Feedback from Students</h2>";
+
+      const feedbackRef = ref(database, "feedbacks");
+      get(feedbackRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          snapshot.forEach((childSnapshot) => {
+            const feedback = childSnapshot.val();
+            const feedbackItem = document.createElement("div");
+            feedbackItem.className = "feedback-item";
+            feedbackItem.innerHTML = `
+              <h3>${feedback.name} (Rating: ${feedback.rating})</h3>
+              <p>${feedback.feedback}</p>
+              <small>${feedback.timestamp}</small>
+            `;
+            feedbackList.appendChild(feedbackItem);
+          });
+        } else {
+          feedbackList.innerHTML += "<p>No feedback available.</p>";
+        }
+      });
+    }
+
+    loadFeedbacks(); // Load feedback on page load
+  </script>
+</body>
+</html>

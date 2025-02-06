@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calctia - Trigonometry and Statistics Solver</title>
+    <link rel="stylesheet" href="solveing.css">
+    <link rel="icon" href="./logo.jpg">
+</head>
+<body>
+    <header>
+        <h1>Probleem Solver</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="trigonometry.html">Trigonometry</a>
+            <a href="statistics.html">Statistics</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="more.html">More</a>
+        </nav>
+    </header>
+
+    <section class="container">
+        <h2>Trigonometry Problem Solver</h2>
+        <form>
+            <label for="angle">Enter Angle (in degrees):</label>
+            <input type="number" id="angle" />
+            <br />
+            <label for="function">Select Function:</label>
+            <select id="function">
+                <option value="sin">Sine</option>
+                <option value="cos">Cosine</option>
+                <option value="tan">Tangent</option>
+            </select>
+            <br />
+            <button type="button" onclick="solveTrigonometry()">Solve</button>
+        </form>
+        <div class="result" id="trigResult"></div>
+    </section>
+
+    <section class="container">
+        <h2>Statistics Calculator</h2>
+        <form>
+            <label for="numbers">Enter Numbers (comma separated):</label>
+            <input type="text" id="numbers" />
+            <br />
+            <label for="statFunction">Select Calculation:</label>
+            <select id="statFunction">
+                <option value="mean">Mean</option>
+                <option value="median">Median</option>
+                <option value="mode">Mode</option>
+            </select>
+            <br />
+            <button type="button" onclick="calculateStatistics()">Calculate</button>
+        </form>
+        <div class="result" id="statsResult"></div>
+    </section>
+
+    <script src="solveing.js"></script>
+</body>
+</html>
